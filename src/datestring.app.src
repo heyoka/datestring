@@ -1,7 +1,7 @@
 {application, datestring,
  [
-  {description, ""},
-  {vsn, "1"},
+  {description, "Parse and Format Date and Time in Erlang"},
+  {vsn, "1.1"},
   {registered, []},
   {applications, [
                   kernel,

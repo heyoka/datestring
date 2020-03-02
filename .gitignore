@@ -2,5 +2,6 @@
 .DS_Store
 /ebin/*
 /.eunit/*
-/rebar
 /erl_crash.dump
+/_build
+/rebar3.crashdump

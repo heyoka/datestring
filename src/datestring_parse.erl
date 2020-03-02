@@ -137,7 +137,7 @@ parse([$Y|Fmt], [N1, N2, N3, N4|Rest], D)
         when ?is_num(N1), ?is_num(N2), ?is_num(N3), ?is_num(N4)  ->
     parse(Fmt, Rest, D#date{y = list_to_integer([N1, N2, N3, N4])});
 parse([$y|Fmt], [N1, N2|Rest], D) when ?is_num(N1), ?is_num(N2) ->
-    {{CurrentYear, _, _}, _} = calendar:now_to_datetime(erlang:now()),
+    {{CurrentYear, _, _}, _} = calendar:now_to_datetime(erlang:timestamp()),
     [P1, P2|_] = integer_to_list(CurrentYear),
     parse(Fmt, Rest, D#date{y = list_to_integer([P1, P2, N1, N2])});
 
