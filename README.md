@@ -1,3 +1,16 @@
+
+! This fork
+---------
+
+This fork will output millisecond precision at max.
+Furthermore there a two more format symbols for milliseconds("c") and nanoseconds("f") besides the microseconds symbol "u".
+
+
+
+
+
+
+
 Parse and Format Date and Time in Erlang
 ========================================
 
@@ -199,10 +212,22 @@ Meaningful characters can be escaped with a backslash (\\).
             <td>The time as H:M:S (24 hour format) ("23:49:49")</td>
         </tr>
         <tr>
+            <td>c</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Milliseconds, 3 digits with leading zero ("034")</td>
+        </tr>
+        <tr>
             <td>u</td>
             <td>Yes</td>
             <td>Yes</td>
             <td>Microseconds, 6 digits with leading zero ("000034")</td>
+        </tr>
+        <tr>
+            <td>f</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Nanoseconds, 9 digits with leading zero ("000034000")</td>
         </tr>
         <tr>
             <td>y</td>
