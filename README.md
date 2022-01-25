@@ -3,6 +3,7 @@
 ---------
 
 This fork will output millisecond precision at max.
+
 Furthermore there a two more format symbols for milliseconds("c") and nanoseconds("f") besides the microseconds symbol "u".
 
 
