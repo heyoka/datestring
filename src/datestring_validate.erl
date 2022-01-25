@@ -11,6 +11,7 @@ valid_datetime({{Y, M, D}, {H, I, S}}) ->
 valid_datetime({{Y, M, D}, {{H, I, S}, U}}) ->
     valid_datetime(#date{y = Y, m = M, d = D, h = H, 'M' = I, s = S, u = U});
 valid_datetime(D) ->
+    io:format("hey: ~p~n",[D]),
     try
         {ok, Date} = datestring_validate:valid_date(D),
         {ok, Time} = datestring_validate:valid_time(D),
@@ -51,5 +52,11 @@ valid_time(#date{h = H, meridiem = pm} = Date) when H < 12 ->
     valid_time(Date#date{h = H + 12, meridiem = undefined});
 valid_time(#date{h = H, meridiem = am} = Date) when H =:= 12 ->
     valid_time(Date#date{h = H - 12, meridiem = undefined});
-valid_time(#date{h = H, 'M' = M, s = S, u = U}) ->
-    {ok, {{H, M, S}, U}}.
+valid_time(#date{h = H, 'M' = M, s = S, ms = Ms, u = U, na = Nano}) ->
+    %% translate everything after seconds to milliseconds
+    {ok, {{H, M, S}, Ms+micro_to_ms(U)+nano_to_ms(Nano)}}.
+
+nano_to_ms(Nano) when is_integer(Nano) -> erlang:round(Nano/1000/1000);
+nano_to_ms(_) -> 0.
+micro_to_ms(Micro) when is_integer(Micro)-> erlang:round(Micro/1000);
+micro_to_ms(_) -> 0.

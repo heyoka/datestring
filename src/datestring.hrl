@@ -92,6 +92,8 @@
         'M' = 0,
         s = 0,
         u = 0,
+        ms = 0,
+        na = 0,
         meridiem,
         offset,
         tz
