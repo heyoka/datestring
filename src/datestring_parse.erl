@@ -133,17 +133,15 @@ parse([$S|Fmt], [N1, N2|Rest], D) when ?is_num(N1), ?is_num(N2) ->
 parse([$f|Fmt], [N1, N2, N3, N4, N5, N6, N7, N8, N9|Rest], D)
     when ?is_num(N1), ?is_num(N2), ?is_num(N3), ?is_num(N4),
     ?is_num(N5), ?is_num(N6), ?is_num(N7), ?is_num(N8), ?is_num(N9) ->
-    Nano0 = list_to_integer([N1, N2, N3, N4, N5, N6, N7, N8, N9]),
-    Nano = erlang:trunc(Nano0/1000/1000),
-    parse(Fmt, Rest, D#date{ms = Nano});
+    Nano = list_to_integer([N1, N2, N3, N4, N5, N6, N7, N8, N9]),
+    parse(Fmt, Rest, D#date{na = Nano});
 
 %% microseconds
 parse([$u|Fmt], [N1, N2, N3, N4, N5, N6|Rest], D)
         when ?is_num(N1), ?is_num(N2), ?is_num(N3), ?is_num(N4),
              ?is_num(N5), ?is_num(N6)  ->
-    U0 = list_to_integer([N1, N2, N3, N4, N5, N6]),
-    U = erlang:trunc(U0/1000),
-    parse(Fmt, Rest, D#date{ms = U});
+    U = list_to_integer([N1, N2, N3, N4, N5, N6]),
+    parse(Fmt, Rest, D#date{u = U});
 
 %% milliseconds
 parse([$c|Fmt], [N1, N2, N3|Rest], D)
