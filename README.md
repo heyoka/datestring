@@ -215,7 +215,7 @@ Meaningful characters can be escaped with a backslash (\\).
         <tr>
             <td>c</td>
             <td>Yes</td>
-            <td>Yes</td>
+            <td>No</td>
             <td>Milliseconds, 3 digits with leading zero ("034")</td>
         </tr>
         <tr>
@@ -227,7 +227,7 @@ Meaningful characters can be escaped with a backslash (\\).
         <tr>
             <td>f</td>
             <td>Yes</td>
-            <td>Yes</td>
+            <td>No</td>
             <td>Nanoseconds, 9 digits with leading zero ("000034000")</td>
         </tr>
         <tr>
