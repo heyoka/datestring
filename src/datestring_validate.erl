@@ -11,7 +11,6 @@ valid_datetime({{Y, M, D}, {H, I, S}}) ->
 valid_datetime({{Y, M, D}, {{H, I, S}, U}}) ->
     valid_datetime(#date{y = Y, m = M, d = D, h = H, 'M' = I, s = S, u = U});
 valid_datetime(D) ->
-    io:format("hey: ~p~n",[D]),
     try
         {ok, Date} = datestring_validate:valid_date(D),
         {ok, Time} = datestring_validate:valid_time(D),
